@@ -27,7 +27,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                script {
-                  withDockerRegistry(credentialsId: 'docker-hub-cred', url: 'https://index.docker.io/v1/') {
+                  withDockerRegistry(credentialsId: 'dc743e29-888b-4cb9-8edd-8cac75ef228f', url: 'https://index.docker.io/v1/') {
                   sh 'docker push vevadevops/vproappfix'
                  }
                }
