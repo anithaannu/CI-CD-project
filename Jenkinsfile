@@ -18,8 +18,8 @@ pipeline {
                script {
                   sh 'mkdir -p Docker-app/target'
                   sh 'cp target/vprofile-v2.war Docker-app/target/'
-                  sh 'docker build -t vevadevops/vproappfix:$BUILD_ID Docker-app/'
-                  sh 'docker tag vevadevops/vproappfix:$BUILD_ID vevadevops/vproappfix:latest'
+                  sh 'docker build -t anithaannu/vproappfix:$BUILD_ID Docker-app/'
+                  sh 'docker tag anithaannu/vproappfix:$BUILD_ID anithaannu/vproappfix:latest'
                }
             }
         } 
@@ -28,7 +28,7 @@ pipeline {
             steps {
                script {
                   withDockerRegistry(credentialsId: 'dc743e29-888b-4cb9-8edd-8cac75ef228f', url: 'https://index.docker.io/v1/') {
-                  sh 'docker push vevadevops/vproappfix'
+                  sh 'docker push anithaannu/vproappfix'
                  }
                }
             }
@@ -55,7 +55,7 @@ pipeline {
            
         stage('deploy') {
             environment {
-                IMAGE_NAME = 'vevadevops/vproappfix:latest'
+                IMAGE_NAME = 'anithaannu/vproappfix:latest'
             }        
             steps {
                 script {
