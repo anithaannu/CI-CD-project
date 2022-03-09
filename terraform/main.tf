@@ -28,8 +28,8 @@ data "aws_ami" "latest-amazon-linux-image" {
 resource "aws_instance" "Docker-Server" {
     ami = data.aws_ami.latest-amazon-linux-image.id
     instance_type = "t2.micro" 
-    key_name = "Jenkins-new-key"
-    security_groups = ["All-Traffic-SG"]
+    key_name = "Ansible_new_key"
+    security_groups = ["All_traffic_sg"]
     user_data = file("entry-script.sh")
     tags = {
         Name = "Docker Server by Terraform"
