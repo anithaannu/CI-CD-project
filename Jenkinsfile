@@ -29,7 +29,7 @@ pipeline {
                script {
                   withDockerRegistry(credentialsId: 'dc743e29-888b-4cb9-8edd-8cac75ef228f', url: 'https://index.docker.io/v1/') {
                   sh 'docker push anithaannu/vproappfix'
-                  sh 'docker rm anithaannu/vproappfix:$BUILD_ID'
+                  sh 'docker rmi anithaannu/vproappfix:$BUILD_ID'
                  }
                }
             }
