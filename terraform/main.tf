@@ -3,12 +3,12 @@
   #  backend "s3" {
    #     bucket = "terraform-statefiles-folder"
     #    key = "myapp/state.tfstate"
-     #   region = "ap-south-1"
+     #   region = "us-east-1"
    # }
 #}
 
 provider "aws" {
-    region = "ap-south-1"
+    region = "us-east-1"
 }
 
 data "aws_ami" "latest-amazon-linux-image" {
@@ -29,7 +29,7 @@ resource "aws_instance" "Docker-Server" {
     ami = data.aws_ami.latest-amazon-linux-image.id
     instance_type = "t2.micro" 
     key_name = "Ansible_new_key"
-    security_groups = ["sg-0afb0b5d12d758d32"]
+    security_groups = ["All_traffic_sg"]
     user_data = file("entry-script.sh")
     tags = {
         Name = "Docker Server by Terraform"
