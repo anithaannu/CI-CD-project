@@ -29,7 +29,7 @@ resource "aws_instance" "Docker-Server" {
     ami = data.aws_ami.latest-amazon-linux-image.id
     instance_type = "t2.micro" 
     key_name = "Ansible_new_key"
-    security_groups = [sg-0afb0b5d12d758d32"]
+    security_groups = ["sg-0afb0b5d12d758d32"]
     user_data = file("entry-script.sh")
     tags = {
         Name = "Docker Server by Terraform"
